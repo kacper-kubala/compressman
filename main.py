@@ -1,21 +1,21 @@
 import subprocess
 
 # Definiujemy nazwy plików
-plik_wejsciowy = "input.mp4"
-plik_wyjsciowy = "skompresowany.mp4"
+input_file = "temp_input.mp4"
+output_file = "temp_output.mp4"
 
 # Budujemy komendę jako listę
-komenda = [
+command = [
     "ffmpeg", 
-    "-i", plik_wejsciowy,       # Flaga wejścia i nazwa pliku
+    "-i", input_file,       # Flaga wejścia i nazwa pliku
     "-vcodec", "libx264",       # Kodek wideo
     "-crf", "20",               # Poziom kompresji
-    plik_wyjsciowy              # Plik wynikowy
+    temp_output              # Plik wynikowy
 ]
 
 print("Zaczynam kompresję... ⏳")
 
 # Uruchamiamy proces
-subprocess.run(komenda) 
+subprocess.run(command) 
 
 print("Skończone! Sprawdź folder. 🎉")
